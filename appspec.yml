@@ -1,0 +1,30 @@
+name: app-platform-rewrites
+region: nyc
+services:
+- environment_slug: node-js
+  github:
+    branch: master
+    deploy_on_push: true
+    repo: mariusc23/app-platform-rewrites
+  http_port: 8080
+  instance_count: 1
+  instance_size_slug: basic-xxs
+  name: app-platform-rewrites
+  routes:
+  - path: /
+  run_command: npm start
+  source_dir: /app1
+- environment_slug: node-js
+  github:
+    branch: master
+    deploy_on_push: true
+    repo: mariusc23/app-platform-rewrites
+  http_port: 8080
+  instance_count: 1
+  instance_size_slug: basic-xxs
+  name: app-platform-rewrites2
+  routes:
+  - path: /graphql
+  - path: /admin
+  run_command: npm start
+  source_dir: /app2
